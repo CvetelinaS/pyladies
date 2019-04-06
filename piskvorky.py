@@ -1,3 +1,4 @@
+#pridavam komentar pro Git
 def vyhodnot(radek):
     if  'xxx' in radek:
         return ('\'x\'')
