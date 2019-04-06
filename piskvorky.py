@@ -1,25 +1,51 @@
-pole = 20*"-"
-print (pole)
-while ("xxx" not in pole) and ("ooo" not in pole) and ("-" in pole):
-    pozice = int(input ("Zadej pozici (hráč 1): "))
-    while pozice not in range(0, 19) and not "x" and not "o":
-        print ('Zadej pozici v rozsahu 1-20 která již není obsazená znakem "x" nebo "o".')
-        print (pole)
-        pozice = int(input ("Zadej pozici (hráč 1): "))
-        pole = pole [:pozice]+"x"+pole [pozice+1:]
-    print (pole)
-    pozice = int(input ("Zadej pozici (hráč 2): "))
-    #pole = pole [:pozice]+"x"+pole [pozice+1:]
-    while pozice not in range(0, 19):
-        print ('Zadej pozici v rozsahu 1-20 která již není obsazená znakem "x" nebo "o".')
-        print (pole)
-        pozice = int(input ("Zadej pozici (hráč 2): "))
-    #pozice = int(input ("Zadej pozici (hráč 2): "))
-    pole = pole [:pozice]+"o"+pole [pozice+1:]
-    print (pole)
-if "xxx" in pole:
-    print("Vzhrál hráč 1 (x)")
-elif "ooo"in pole:
-    print("Vyhrál hráč 2 (o)")
-else:
-    print("Remíza")
+def vyhodnot(radek):
+    if  'xxx' in radek:
+        return ('\'x\'')
+    elif 'ooo' in radek:
+        return('\'o\'')
+    elif '-' not in radek:
+        return('\'!\'')
+    else:
+        return('\'-\'')
+
+def tah(pole, cislo_policka, symbol):
+    return pole[:cislo_policka] + symbol + pole[cislo_policka + 1:]
+#tah hrace
+def tah_hrace(pole, otazka):
+    while True:
+        cislo_policka=int(input(otazka))
+        if cislo_policka<0:
+            print ('Zadej kladne cislo!')
+        elif cislo_policka>19:
+            print ('Vyber si policko od 0 do 19!')
+        elif '-' not in pole[:cislo_policka]:
+            print('Pole je obsazeno. Hrej znovu.')
+        else:
+            return tah(pole,cislo_policka,'x')
+
+#tah pocitace
+from random import randrange
+def tah_pocitace(pole):
+    while True:
+        cislo_policka=randrange(19)
+        if '-' in pole[:cislo_policka]:
+            return tah(pole,cislo_policka,'o')
+#samotna hra
+def piskvorky1d():
+    pole='-'*20
+    while '-' in pole:
+        print(pole)
+        pole = tah_hrace(pole, 'Vyber si policko od 0 do 19:')
+        pole = tah_pocitace(pole)
+        vysledek = vyhodnot(pole)
+        if vysledek != '\'-\'':
+            print(vysledek)
+            break
+    if "xxx" in pole:
+        print('Vyhrala jsi')
+    elif "ooo"in pole:
+        print('Vyhral pocitac')
+    else:
+        print('Remiza')
+
+piskvorky1d()
