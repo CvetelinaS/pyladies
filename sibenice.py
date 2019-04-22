@@ -1,3 +1,4 @@
+#pro git
 import random
 
 def sibenice():
