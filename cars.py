@@ -19,6 +19,7 @@ class Bugatti(Car):
     def top_speed(self):
         self.top_speed
 
+    """Which car is faster"""
 while True:
     Porsche.max_speed > Bugatti.max_speed
     print('Porsche: {}'.format(Porsche.top_speed))
