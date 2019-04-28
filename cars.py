@@ -22,11 +22,11 @@ class Bugatti(Car):
     """Which car would be faster"""
 while True:
     Porsche.max_speed > Bugatti.max_speed
-    print('Porsche: {}'.format(Porsche.top_speed))
+    print('Porsche: {}'.format(Porsche.max_speed))
     print('Porsche won')
     break
 
     Bugatti.max_speed > Porsche.max_speed
-    print('Bugatti: {}'.format(Bugatti.top_speed))
+    print('Bugatti: {}'.format(Bugatti.max_speed))
     print('Bugatti won')
     break
