@@ -1,3 +1,5 @@
+from random import randrange
+
 class Car:
 
     max_speed = 500
@@ -7,7 +9,7 @@ class Car:
 
     def top_speed(self, speed):
         """Generates maximum speed in the race"""
-        speed = randrange(0, max_speed)
+        speed = randrange(0, self.max_speed)
 
 class Porsche(Car):
     max_speed = 319
@@ -21,12 +23,10 @@ class Bugatti(Car):
 
     """Which car would be faster"""
 while True:
-    Porsche.max_speed > Bugatti.max_speed
-    print('Porsche: {}'.format(Porsche.max_speed))
-    print('Porsche won')
-    break
-
-    Bugatti.max_speed > Porsche.max_speed
-    print('Bugatti: {}'.format(Bugatti.max_speed))
-    print('Bugatti won')
-    break
+    if Porsche.max_speed > Bugatti.max_speed:
+        print('Porsche: {}'.format(Porsche.max_speed))
+        print('Porsche won')
+    if Bugatti.max_speed > Porsche.max_speed:
+        print('Bugatti: {}'.format(Bugatti.max_speed))
+        print('Bugatti won')
+        break
