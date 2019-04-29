@@ -33,35 +33,6 @@ class Robot():
         """Default attack. Simply makes damage."""
         self._make_damage(target_robot)
 
-class Human():
-    max_damage = 10
-
-    def __init__(self, lifes):
-        self.lifes = lifes
-
-    def _make_damage(self, target_robot):
-        """Generates random damage with automatic rifle"""
-        damage = randrange(0, self.max_damage)
-
-    def _take_damage(self, damage):
-        """Sets new number of lifes when not already 0."""
-        if self.lifes - damage <0:
-            self.lifes = 0
-        else:
-            self.lifes -= damage
-    
-    def is_alive(self):
-        """Returns True if the human has any lifes left."""
-        return self.lifes > 0
-
-    def defend(self, damage):
-        """Default defend. Simply takes damage."""
-        self._take_damage(damage)
-
-    def attack(self, target_robot):
-        """Default attack. Simply makes damage."""
-        self._make_damage(target_robot)
-
 class Aggressive(Robot):
     max_damage = 7
     def attack(self, target_robot):
@@ -75,15 +46,8 @@ class Defensive(Robot):
         """Special for deffensive robot, takes only half damage."""
         self._take_damage(damage // 2)
 
-class myMan(Human):
-    max_damage = 100
-    def attack(self, target_robot):
-        """Makes damage to the robot"""
-        self._make_damage(target_robot)
-
 aggr = Aggressive(10)
 deff = Defensive(50)
-hum = myMan(1)
 while True:
     aggr.attack(deff)
     print('Deff: {}'.format(deff.lifes))
@@ -91,18 +55,6 @@ while True:
         print('Aggr won')
         break
     
-    aggr.attack(hum)
-    print('Deff: {}'.format(hum.lifes))
-    if not hum.is_alive():
-        print('Human is dead')
-        break
-    
-    hum.attack(aggr)
-    print('Aggr: {}'.format(aggr.lifes))
-    if not aggr.is_alive():
-        print('Human won')
-        break 
-
     deff.attack(aggr)
     print('Aggr: {}'.format(aggr.lifes))   
     if not aggr.is_alive():
