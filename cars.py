@@ -4,22 +4,23 @@ class Car:
 
     max_speed = 500
 
-    def __init__(self, brand):
+    def __init__(self, brand, speed):
         self.brand = brand
+        self.speed = speed
 
-    def top_speed(self, speed):
+    def drive(self):
         """Generates maximum speed in the race"""
         speed = randrange(0, self.max_speed)
 
 class Porsche(Car):
     max_speed = 319
-    def top_speed(self):
-        self.top_speed
+    def go(self, speed):
+        self.max_speed
 
 class Bugatti(Car):
     max_speed = 408
-    def top_speed(self):
-        self.top_speed
+    def go(self, speed):
+        self.max_speed
 
     """Which car would be faster"""
 while True:
