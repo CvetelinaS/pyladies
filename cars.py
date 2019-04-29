@@ -1,5 +1,5 @@
 from random import randrange
-
+"""create a class"""
 class Car:
 
     max_speed = 500
@@ -11,7 +11,7 @@ class Car:
     def drive(self):
         """Generates maximum speed in the race"""
         speed = randrange(0, self.max_speed)
-
+"""inheriting classes"""
 class Porsche(Car):
     max_speed = 319
     def go(self, speed):
