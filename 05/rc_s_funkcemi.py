@@ -14,6 +14,15 @@ def format(rodne_cislo):                           #("Zadejte své rodné čísl
             return True
         else:
             return False
+    try:
+        rc = int (''.join(rodne_cislo.split('/')))
+    except ValueError:
+        return False
+    else:
+        if rc % 11 == 0:
+            return True
+        else:
+            return False
 
 # je delitelne 11?
 def delitelnost(rodne_cislo):
@@ -64,7 +73,7 @@ print('{} je skutecne rodne cislo.'.format(rodne_cislo))
 
 data = datum_narozeni(rodne_cislo)
 gender = pohlavi(rodne_cislo)
-print('Datum narozeni: {} {} 19{}'.format(data))
+print('Datum narozeni: {} {} 19{}'.format(*data))
 print('Pohlavi: {}'.format(gender))
 
 

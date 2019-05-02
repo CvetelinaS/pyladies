@@ -1,5 +1,5 @@
 #pridavam komentar pro Git
-def vyhodnot(radek):
+#def vyhodnot(radek): komentirano zaradi testovete
     if  'xxx' in radek:
         return ('\'x\'')
     elif 'ooo' in radek:
@@ -9,10 +9,10 @@ def vyhodnot(radek):
     else:
         return('\'-\'')
 
-def tah(pole, cislo_policka, symbol):
+#def tah(pole, cislo_policka, symbol):
     return pole[:cislo_policka] + symbol + pole[cislo_policka + 1:]
 #tah hrace
-def tah_hrace(pole, otazka):
+#def tah_hrace(pole, otazka):
     while True:
         cislo_policka=int(input(otazka))
         if cislo_policka<0:
@@ -24,8 +24,15 @@ def tah_hrace(pole, otazka):
         else:
             return tah(pole,cislo_policka,'x')
 
+#tah pocitace
+#from random import randrange
+#def tah_pocitace(pole):
+    while True:
+        cislo_policka=randrange(19)
+        if '-' in pole[:cislo_policka]:
+            return tah(pole,cislo_policka,'o')
 #samotna hra
-def piskvorky1d():
+#def piskvorky1d():
     pole='-'*20
     while '-' in pole:
         print(pole)
@@ -41,3 +48,5 @@ def piskvorky1d():
         print('Vyhral pocitac')
     else:
         print('Remiza')
+
+#piskvorky1d()
