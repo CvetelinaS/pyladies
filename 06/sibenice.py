@@ -13,14 +13,14 @@ def sibenice():
     
     # Kolik pismenek(pomlcek) musime uhodnout
     print(pomlcky)
-    print (str(zivoty))
+    print(str(zivoty))
     
     # Zeptej se ktere pismenko si vybereme
     pokus = input("Vyber pismenko:")
     
     # Pokud bude zadano neco jineho nez jedno pismenko
     if len(pokus) != 1:
-      print ("Musis vybrat presne jedno pismenko!")
+      print("Musis vybrat presne jedno pismenko!")
       
     # pokud uhodneme pismenko, zmizi pomlcka
     elif pokus in tajne_slovo:
@@ -29,15 +29,15 @@ def sibenice():
       
     # pokud neuhodneme pismenko, snizi se pocet pokusu
     else:
-      print ("Vybrane pismenko neni v tajnem slovu!")
+      print("Vybrane pismenko neni v tajnem slovu!")
       zivoty -= 1
     
   if zivoty < 0:
-    print ("Prohrala jsi. Slovo je: " + str(tajne_slovo))
+    print("Prohrala jsi. Slovo je: " + str(tajne_slovo))
   
   # pokud zmizi pomlcky a uhodneme vsechna pismenka, vyhrajeme
   else:
-    print ("Gratuluju! Vyhrala jsi! Slovo je: " + str(tajne_slovo))
+    print("Gratuluju! Vyhrala jsi! Slovo je: " + str(tajne_slovo))
     
 # meni se pocet a misto pomlcek
 def update_pomlcky(secret, soucasne_pomlcky, opak_pokus):
